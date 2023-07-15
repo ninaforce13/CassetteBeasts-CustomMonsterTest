@@ -5,7 +5,7 @@ func get_snapshot():
 	var tape_snaps = []
 	for tape in tapes_by_name:
 		var snapshot = tape.get_snapshot()		
-		if snapshot["form"].begins_with("res://mods/"):
+		if snapshot["form"].begins_with("res://mods/") or snapshot["form"].begins_with("res://data/monster_forms/mods_"):
 			snapshot["custom_form"] = snapshot["form"]
 			snapshot["form"] =  "res://data/monster_forms/traffikrab.tres"
 			print("caught custom mon in storage")
