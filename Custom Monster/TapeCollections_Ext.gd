@@ -20,8 +20,10 @@ func set_snapshot(snap, version:int)->bool:
 		var tape = MonsterTape.new()
 		if tape_snap.has("custom_form"):
 			if tape_snap.custom_form != "":
-				tape_snap.form = tape_snap.custom_form	
-				print("converted custom tape back to custom form")	
+				var form = load(tape_snap.custom_form) as MonsterForm
+				if form:									
+					tape_snap.form = tape_snap.custom_form	
+					print("converted custom tape back to custom form")	
 		if tape.set_snapshot(tape_snap, version):
 			add_tape(tape)
 		else :
